@@ -39,18 +39,18 @@ pip install -r requirements.txt
 
 ```bash
 python scripts/track_drone.py \
-  --model /path/to/your/best.pt \
   --source /path/to/video.mp4 \
   --show \
   --save-video
 ```
+
+> 若项目根目录已有 `.pt` 模型文件，会自动加载（优先 `yolo26n*.pt`，其次 `best.pt`）。
 
 ### 使用 ByteTrack（官方或自定义配置）
 
 ```bash
 # 官方默认配置
 python scripts/track_drone.py \
-  --model /path/to/your/best.pt \
   --source /path/to/video.mp4 \
   --tracker bytetrack.yaml \
   --conf 0.2 --iou 0.5 \
@@ -58,7 +58,6 @@ python scripts/track_drone.py \
 
 # 使用项目内针对无人机场景的配置
 python scripts/track_drone.py \
-  --model /path/to/your/best.pt \
   --source /path/to/video.mp4 \
   --tracker configs/drone_bytetrack.yaml \
   --show --save-video
@@ -70,7 +69,6 @@ python scripts/track_drone.py \
 
 ```bash
 python scripts/track_drone.py \
-  --model /path/to/your/best.pt \
   --source /path/to/video.mp4 \
   --device mps \
   --show --save-video
@@ -80,7 +78,7 @@ python scripts/track_drone.py \
 
 ## 4) 参数说明
 
-- `--model`：训练好的 `.pt` 模型路径（必填）
+- `--model`：训练好的 `.pt` 模型路径（可选，默认自动读取项目根目录 `.pt`）
 - `--source`：输入视频路径（必填，支持 mp4/mov/avi/mkv/m4v）
 - `--tracker`：`botsort.yaml` / `bytetrack.yaml` / 自定义 yaml
 - `--conf`：置信度阈值（默认 `0.25`）
