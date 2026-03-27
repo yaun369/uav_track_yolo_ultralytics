@@ -38,8 +38,8 @@ pip install -r requirements.txt
 ### 基础用法（默认 BoT-SORT）
 
 ```bash
-python scripts/track_drone.py \
-  --source /path/to/video.mp4 \
+python3 scripts/track_drone.py \
+  --source runs/video/1.mp4 \
   --show \
   --save-video
 ```
@@ -50,15 +50,15 @@ python scripts/track_drone.py \
 
 ```bash
 # 官方默认配置
-python scripts/track_drone.py \
-  --source /path/to/video.mp4 \
+python3 scripts/track_drone.py \
+  --source runs/video/1.mp4 \
   --tracker bytetrack.yaml \
   --conf 0.2 --iou 0.5 \
   --show --save-video
 
 # 使用项目内针对无人机场景的配置
-python scripts/track_drone.py \
-  --source /path/to/video.mp4 \
+python3 scripts/track_drone.py \
+  --source runs/video/1.mp4 \
   --tracker configs/drone_bytetrack.yaml \
   --show --save-video
 ```
@@ -68,8 +68,8 @@ python scripts/track_drone.py \
 如果你是 M 系列芯片，可以尝试启用 MPS：
 
 ```bash
-python scripts/track_drone.py \
-  --source /path/to/video.mp4 \
+python3 scripts/track_drone.py \
+  --source runs/video/1.mp4 \
   --device mps \
   --show --save-video
 ```

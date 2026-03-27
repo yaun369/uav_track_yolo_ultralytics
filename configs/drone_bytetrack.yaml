@@ -1,9 +1,10 @@
 # Custom ByteTrack config for relatively small/fast drones.
+# Tuned for dense multi-drone scenes to reduce missed detections.
 # Keep tracker_type unchanged per Ultralytics docs.
 tracker_type: bytetrack
-track_high_thresh: 0.35
-track_low_thresh: 0.10
-new_track_thresh: 0.35
-track_buffer: 40
-match_thresh: 0.80
+track_high_thresh: 0.25       # ↓ was 0.35 — let more detections into first-round matching
+track_low_thresh: 0.05        # ↓ was 0.10 — rescue occluded/overlapping drones in second round
+new_track_thresh: 0.25        # ↓ was 0.35 — easier to initialize new tracks for entering drones
+track_buffer: 60              # ↑ was 40  — keep lost tracks longer (≈2s @30fps) for re-association
+match_thresh: 0.70            # ↓ was 0.80 — relax IoU matching for fast/dense drones
 fuse_score: true

@@ -58,8 +58,8 @@ def parse_args(default_model: Path | None) -> argparse.Namespace:
         default="botsort.yaml",
         help="Tracker config: botsort.yaml / bytetrack.yaml or custom yaml path",
     )
-    parser.add_argument("--conf", type=float, default=0.25, help="Confidence threshold")
-    parser.add_argument("--iou", type=float, default=0.45, help="NMS IoU threshold")
+    parser.add_argument("--conf", type=float, default=0.10, help="Confidence threshold")
+    parser.add_argument("--iou", type=float, default=0.60, help="NMS IoU threshold")
     parser.add_argument(
         "--classes",
         type=int,
